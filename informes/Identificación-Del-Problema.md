@@ -1,4 +1,4 @@
-#Identificación del Problema
+# Identificación del Problema
 En el presente caso aún no se ha identificado un problema concreto, ya que no hay comunicación con el tercer miembro de nuestro grupo 
 por motivos médicos, por lo que no se sabe si el problema, "Patagones Frio" será continuado o no.
 
@@ -8,7 +8,7 @@ utilizando una aplicación que conecte directamente a la fuente de materia prima
 
 ----------------------------------------------------------------------------------------
 
-#Caso Problema Patagones Frío
+# Caso Problema Patagones Frío
 
 La empresa se encuentra dedicada a la conservación de productos marítimos en su día a día, los procesos que involucran el trabajo de 
 diferentes áreas no poseen una buena comunicación entre sí, dificultando la correcta administración y uso de sus bienes y servicios, por lo tanto

@@ -10,6 +10,6 @@ utilizando una aplicación que conecte directamente a la fuente de materia prima
 
 # Caso Problema Patagones Frío
 
-La empresa se encuentra dedicada a la conservación de productos marítimos en su día a día, los procesos que involucran el trabajo de 
-diferentes áreas no poseen una buena comunicación entre sí, dificultando la correcta administración y uso de sus bienes y servicios, por lo tanto
-la creación de una plataforma que haga un seguimiento de los productos en dichos procesos ayudara a suplir este problema.
+La empresa se encuentra dedicada a la conservación de productos marítimos en su día a día, los procesos que involucran el trabajo de diferentes áreas no poseen una buena comunicación entre sí, dificultando la correcta administración y uso de sus bienes y servicios, por lo tanto la creación de una plataforma que haga un seguimiento de los productos en dichos procesos ayudara a suplir este problema.
+
+**Nota profesor: Identificar el problema esta semana. La frase anterior no esta mal, pero le falta mas desarroll. En vez de decir empresa, coloquen el nombre de esta. **

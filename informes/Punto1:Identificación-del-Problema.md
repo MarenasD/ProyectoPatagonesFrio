@@ -35,6 +35,8 @@ Hoy Patagones Frío no tiene un control sobre cada etapa del proceso industrial,
 
 2.2. Complejidad del problema.
 
+Para las etapas de este proceso industrial de Patagones Frío de recepción, registro y glaseado se necesita ir registrando la información correspondiente de que se está haciendo con cada producto y donde se encuentra en un determinado momento. Para ello las etapas están asignadas a un supervisor que registra la entrada de los productos, luego los envía a ser tratados con el proceso de glaseado, estos son depositados un tiempo determinado para luego ser re glaseados con una última capa, después de esto son enviados permanentemente a bodega  para luego ser vendidos cuando se necesite.
+
 
 
  

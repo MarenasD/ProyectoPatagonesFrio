@@ -13,6 +13,8 @@ Se encuentra ubicada en Cardonal, en Puerto Montt.
 
 1.1.2. Diagnóstico
 
+Al realizar los procesos de venta se revisa el contenido actual de la bodega, ahí se descubre que hay discrepancias del contenido actual comparado al que deberían tener según lo registrado en el momento de realizar la compra y glaseado de materiales, Por lo que se encuentra una falla crítica al registrar los materiales post compra.
+
 
 
 1.2.  Descripción del problema

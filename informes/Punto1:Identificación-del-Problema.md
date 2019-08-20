@@ -1,5 +1,6 @@
      Identificación del Problema 
-1. Actualización y justificación del problema 
+1. Actualización y justificación del problema
+
 Al proyecto actual se le añadirá una función nueva que realice un control de estadísticas para mejorar la forma de realizar el seguimiento. Esto se realiza para controlar las etapas en el proceso industrial, así mismo se mejora aún más el proceso de seguimiento. 
  
 1.1.  Descripción de la organización

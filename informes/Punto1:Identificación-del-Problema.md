@@ -3,6 +3,7 @@
 Al proyecto actual se le añadirá una función nueva que realice un control de estadísticas para mejorar la forma de realizar el seguimiento. Esto se realiza para controlar las etapas en el proceso industrial, así mismo se mejora aún más el proceso de seguimiento. 
  
 1.1.  Descripción de la organización
+
 1.1.1. Antecedentes
 
 Patagones Frío es una empresa distribuidora y liquidadora de salmones para exportación. La empresa se encarga de pedidos 

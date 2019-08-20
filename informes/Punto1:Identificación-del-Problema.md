@@ -26,5 +26,15 @@ Al realizar los procesos de venta se revisa el contenido actual de la bodega, ah
  cada etapa de este proceso industrial y asegurar lo que está ocurriendo con los productos que se están elaborando, 
  evitando la falsificación, robo y manipulación de estos mismos.
 
+2.   	Justificación del problema
+
+
+2.1. Relevancia del problema.
+
+Hoy Patagones Frío no tiene un control sobre cada etapa del proceso industrial, la información con la que se trabaja en base a plantillas de papel en ocasiones es incoherente e incorrecta, además de estar sujeta a modificaciones, falsificaciones y robos por parte del personal. El presente proyecto consiste en implementar un sistema de seguimiento en las etapas para poseer control sobre estas, supliendo las falencias de su registro y trabajo actual.  
+
+2.2. Complejidad del problema.
+
+
 
  

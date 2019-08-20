@@ -1,6 +1,6 @@
 # Objetivo General:
 
-Establecer un sistema de seguimiento de personal para la empresa Patagones Frío, aplicando una Plataforma Web. La cual registrará el movimiento en la elaboración sobre cada etapa(recepción, registro y glaseado) para asegurar de manera verídica la información.
+Establecer un sistema de seguimiento de personal para la empresa Patagones Frío con una Plataforma Web, la cual registrará el movimiento en la elaboración sobre cada etapa(recepción, registro y glaseado) para  tener un control de cada etapa del proceso industrial.
 
 # Objetivos Especificos:
 

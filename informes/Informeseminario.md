@@ -4,7 +4,8 @@ La empresa Patagones Frio dedicada a la elaboración y conservación de producto
 
 II.	Identificación del Problema
 
-1.	Actualización y justificación del problema
+1.	Actualización y justificación del problema:
+
 Al proyecto actual se le añadirá una función nueva que realice un control de estadísticas para mejorar la forma de realizar el seguimiento. Esto se realiza para controlar las etapas en el proceso industrial, así mismo se mejora aún más el proceso de seguimiento. 
 
 1.1.	Descripción de la organización
@@ -12,6 +13,7 @@ Al proyecto actual se le añadirá una función nueva que realice un control de 
 1.1.1. 	Antecedentes:
 
 Patagones Frío es una empresa distribuidora y liquidadora de salmones para exportación. La empresa se encarga de pedidos de despacho al por mayor de pescado y mariscos a distribuidores particulares. Se encarga del sellado y envío de la mercancía. Se encuentra ubicada en Cardonal, en Puerto Montt.
+
 1.1.2. Diagnóstico:
 
 Al realizar los procesos de venta se revisa el contenido actual de la bodega, ahí se descubre que hay discrepancias del contenido actual comparado al que deberían tener según lo registrado en el momento de realizar la compra y glaseado de materiales, Por lo que se encuentra una falla crítica al registrar los materiales post compra.

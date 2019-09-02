@@ -1,4 +1,4 @@
-I.	Introducción
+# I.	Introducción
 
 La empresa Patagones Frio dedicada a la elaboración y conservación de productos marinos, tales como mariscos, pescado y Moluscos. Su local está ubicado en , cuentan con un área de 
 

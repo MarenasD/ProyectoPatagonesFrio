@@ -266,4 +266,24 @@ Venta de productos marinos
 Estructura de costos
 Adquisición y mantención del hosting y dominio para la futura plataforma. Durante su funcionamiento regular, la adquisición de bienes para la venta y distribución.
 
+V.	Planificación General
+
+1.1.	Actividades y tareas:
+En la siguiente imagen se puede dar a entender de una forma muy sencilla de cómo se asignan las actividades y tareas del proyecto, ya que con esto bien definido se puede desarrollar los siguientes puntos que encontramos más adelante.
+[Diagrama de actividad]
+
+1.2.	Responsables y 1.3	Asignación de costos.
+
+Para la asignación de los costos se debe tener desarrollada la carta gantt ya que con esto se puede deducir cuánto tiempo debe trabajar la persona, en este caso se calcula las horas de cada hito multiplicado por el valor hora de cada una de las personas del equipo.
+
+Como lo podemos ver en la siguiente figura:
+[Tabla de responsabilidad/Costos]
+
+1.4.	Línea base de seguimiento (de acuerdo a las entregas de cada hito).
+
+1.5.	Carta Gantt.
+
+La Carta Gantt es una herramienta con la cual es un forma sencilla de lograr establecer un control y un orden para cada tarea que tiene que realizar la persona del equipo ya se de una forma individual como grupal, Al igual es importante ya que se puede ver en el tiempo que tiene determinado el proyecto y así no atrasarse con la fecha de entrega final.
+[Carta gantt]
+
 

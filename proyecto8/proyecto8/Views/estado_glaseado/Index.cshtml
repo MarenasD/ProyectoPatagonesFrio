@@ -1,0 +1,35 @@
+﻿@model IEnumerable<proyecto8.Models.estado_glaseado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Estado glaseado</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Estado Glaseado
+            @*@Html.DisplayNameFor(model => model.tipo_estado)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipo_estado)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_estado_glaseado }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_estado_glaseado }) 
+            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.id_estado_glaseado })*@
+        </td>
+    </tr>
+}
+
+</table>
+<a href="@Url.Action("Gerente","Home")">Volver</a>

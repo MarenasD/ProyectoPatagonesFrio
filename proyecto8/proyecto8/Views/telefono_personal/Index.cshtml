@@ -1,0 +1,45 @@
+﻿@model IEnumerable<proyecto8.Models.telefono_personal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Telefono Personal de Proveedor</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Numero 1:  @*@Html.DisplayNameFor(model => model.num1_personal)*@
+        </th>
+        <th>
+           Numero 2: @*@Html.DisplayNameFor(model => model.num2_personal)*@
+        </th>
+        <th>
+            Nombre completo:  @*@Html.DisplayNameFor(model => model.personal.nombre_completo)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.num1_personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.num2_personal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.personal.nombre_completo)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_telefono_personal }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_telefono_personal }) 
+            @*@Html.ActionLink("Delete", "Delete", new { id=item.id_telefono_personal })*@
+        </td>
+    </tr>
+}
+
+</table>

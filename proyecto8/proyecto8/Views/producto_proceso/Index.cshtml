@@ -1,0 +1,51 @@
+﻿@model IEnumerable<proyecto8.Models.producto_proceso>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Producto Proceso</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Cantidad procesada: @*@Html.DisplayNameFor(model => model.cantidad_procesada)*@
+        </th>
+        <th>
+           Fecha de proceso: @*@Html.DisplayNameFor(model => model.fecha_proceso)*@
+        </th>
+        <th>
+           Estado del producto: @*@Html.DisplayNameFor(model => model.estado_producto.tipo_estado)*@
+        </th>
+        <th>
+           Producto: @*@Html.DisplayNameFor(model => model.producto.producto1)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_procesada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_proceso)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado_producto.tipo_estado)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.producto.producto1)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_producto_proceso }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_producto_proceso }) 
+            @*@Html.ActionLink("Elimiar", "Delete", new { id=item.id_producto_proceso })*@
+        </td>
+    </tr>
+}
+
+</table>

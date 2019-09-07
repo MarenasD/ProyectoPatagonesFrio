@@ -1,0 +1,57 @@
+﻿@model IEnumerable<proyecto8.Models.producto_glaseado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Producto Glaseado</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            Cantidad Glaseada:@*@Html.DisplayNameFor(model => model.cantidad_glaseada)*@
+        </th>
+        <th>
+            Fecha del Glaseado:@*@Html.DisplayNameFor(model => model.fecha_glaseada)*@
+        </th>
+        <th>
+           Estado del Glaseado:@*@Html.DisplayNameFor(model => model.estado_glaseado.tipo_estado)*@
+        </th>
+        <th>
+           @*@Html.DisplayNameFor(model => model.producto_proceso.id_producto_proceso)*@
+        </th>
+        <th>
+            Producto:@*@Html.DisplayNameFor(model => model.producto.producto1)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.cantidad_glaseada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.fecha_glaseada)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.estado_glaseado.tipo_estado)
+        </td>
+        <td>
+          @* @Html.DisplayFor(modelItem => item.producto_proceso.id_producto_proceso)*@
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.producto.producto1)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_producto_glaseado }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_producto_glaseado })
+            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.id_producto_glaseado })*@
+        </td>
+    </tr>
+}
+
+</table>

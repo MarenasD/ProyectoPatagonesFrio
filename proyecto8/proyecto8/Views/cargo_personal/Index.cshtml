@@ -1,0 +1,34 @@
+﻿@model IEnumerable<proyecto8.Models.cargo_personal>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Crear nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            cargo
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.tipocargo_personal)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_cargo }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_cargo }) 
+            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.id_cargo })*@
+        </td>
+    </tr>
+}
+    
+</table>
+<a href="@Url.Action("Gerente","Home")">Volver</a>

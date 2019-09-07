@@ -1,0 +1,34 @@
+﻿@model IEnumerable<proyecto8.Models.producto>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Producto</h2>
+
+<p>
+    @Html.ActionLink("Crear Nuevo", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+           Productos @*@Html.DisplayNameFor(model => model.producto1)*@
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.producto1)
+        </td>
+        <td>
+            @Html.ActionLink("Editar", "Edit", new { id=item.id_producto }) |
+            @Html.ActionLink("Detalle", "Details", new { id=item.id_producto }) 
+            @*@Html.ActionLink("Eliminar", "Delete", new { id=item.id_producto })*@
+        </td>
+    </tr>
+}
+
+</table>
+<a href="@Url.Action("Gerente","Home")">Volver</a>

@@ -1,0 +1,63 @@
+﻿@model proyecto8.Models.producto_proceso
+
+@{
+    ViewBag.Title = "Create";
+}
+
+<h2>Crear nuevo </h2>
+
+@using (Html.BeginForm()) 
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Producto Proceso</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Cantidad Procesada</h4>
+        @*@Html.LabelFor(model => model.cantidad_procesada, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cantidad_procesada, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cantidad_procesada, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Fecha de  Proceso</h4>
+        @*@Html.LabelFor(model => model.fecha_proceso, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fecha_proceso, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fecha_proceso, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Producto</h4>
+        @*@Html.LabelFor(model => model.fk_id_producto, "fk_id_producto", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.DropDownList("fk_id_producto", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.fk_id_producto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Estado</h4>
+        @*@Html.LabelFor(model => model.fk_estado_producto, "fk_estado_producto", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.DropDownList("fk_estado_producto", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.fk_estado_producto, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Crear" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Volver a la lista", "Index")
+</div>

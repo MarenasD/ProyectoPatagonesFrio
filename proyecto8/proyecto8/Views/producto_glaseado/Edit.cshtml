@@ -1,0 +1,65 @@
+﻿@model proyecto8.Models.producto_glaseado
+
+@{
+    ViewBag.Title = "Edit";
+}
+
+<h2>Editar</h2>
+
+@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>Producto Glaseado</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        @Html.HiddenFor(model => model.id_producto_glaseado)
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Cantidad Glaseada</h4>
+        @*@Html.LabelFor(model => model.cantidad_glaseada, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.cantidad_glaseada, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.cantidad_glaseada, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Fecha del Glaseado</h4>
+        @*@Html.LabelFor(model => model.fecha_glaseada, htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.EditorFor(model => model.fecha_glaseada, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(model => model.fecha_glaseada, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Producto</h4>
+        @*@Html.LabelFor(model => model.fk_id_producto_proceso, "fk_id_producto_proceso", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.DropDownList("fk_id_producto_proceso", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.fk_id_producto_proceso, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+    <div class="form-group">
+        <h4 class="control-label col-md-2">Estado</h4>
+        @*@Html.LabelFor(model => model.fk_id_estado_glaseado, "fk_id_estado_glaseado", htmlAttributes: new { @class = "control-label col-md-2" })*@
+        <div class="col-md-10">
+            @Html.DropDownList("fk_id_estado_glaseado", null, htmlAttributes: new { @class = "form-control" })
+            @Html.ValidationMessageFor(model => model.fk_id_estado_glaseado, "", new { @class = "text-danger" })
+        </div>
+    </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Guardar" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Regresar a lista", "Index")
+</div>

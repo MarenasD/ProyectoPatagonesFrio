@@ -1,0 +1,74 @@
+﻿@model proyecto8.Models.registro_compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Detalle del Rgistro de Compra</h2>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            Cantidad comprada: @*@Html.DisplayNameFor(model => model.cantidad_comprada)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_comprada)
+        </dd>
+
+        <dt>
+            Fecha comprada: @*@Html.DisplayNameFor(model => model.fecha_comprada)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_comprada)
+        </dd>
+
+        <dt>
+            Numero de documento:  @*@Html.DisplayNameFor(model => model.n_factura)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_factura)
+        </dd>
+
+        <dt>
+            Lote:  @*@Html.DisplayNameFor(model => model.lote)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lote)
+        </dd>
+
+        <dt>
+            Tipo de documento: @*@Html.DisplayNameFor(model => model.tipo_documento)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_documento)
+        </dd>
+
+        <dt>
+            Nombre del encargado:  @*@Html.DisplayNameFor(model => model.personal.nombre_completo)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personal.nombre_completo)
+        </dd>
+
+        <dt>
+            Producto:  @*@Html.DisplayNameFor(model => model.producto.producto1)*@
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.producto1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Editar", "Edit", new { id = Model.id_registro_compra }) |
+    @Html.ActionLink("Volver a la lista", "Index")
+</p>

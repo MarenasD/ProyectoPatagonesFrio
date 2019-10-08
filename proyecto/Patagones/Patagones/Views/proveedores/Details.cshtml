@@ -1,0 +1,50 @@
+﻿@model Patagones.proveedor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>proveedor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.NombreProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.NombreProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DireccionProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DireccionProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TelefonoProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TelefonoProveedor)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.EmailProveedor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.EmailProveedor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.RutProveedor }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

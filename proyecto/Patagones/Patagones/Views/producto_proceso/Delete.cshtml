@@ -1,0 +1,48 @@
+﻿@model Patagones.producto_proceso
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>producto_proceso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadProceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadProceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaProceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaProceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.Nombre)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

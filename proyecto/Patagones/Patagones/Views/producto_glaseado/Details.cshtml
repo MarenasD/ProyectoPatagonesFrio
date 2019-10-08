@@ -1,0 +1,42 @@
+﻿@model Patagones.producto_glaseado
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>producto_glaseado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.CantidadGlaseado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CantidadGlaseado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.FechaGlaseado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.FechaGlaseado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.Nombre)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.Nombre)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,56 @@
+﻿@model PatagonesF.producto_glaseado
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>producto_glaseado</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_glaseada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_glaseada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_glaseada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_glaseada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_glaseado.tipo_estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_glaseado.tipo_estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.producto1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.producto1)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,116 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - Mi aplicación ASP.NET</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                @Html.ActionLink("Patagones", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+            </div>
+            <div class="navbar-collapse collapse">
+                @if (Request.IsAuthenticated && User.IsInRole("Administrador"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Proveedores", "Index", "Proveedores")</li>
+                        <li>@Html.ActionLink("Personal", "Index", "Personal")</li>
+                        <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                        <li>@Html.ActionLink("Registro", "Index", "Registro_compra")</li>
+                    </ul>
+                }
+
+                @if (Request.IsAuthenticated && User.IsInRole("Gerente"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Personal", "Index", "Personal")</li>
+                        <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                        <li>@Html.ActionLink("Proceso", "Index", "Producto_proceso")</li>
+                        <li>@Html.ActionLink("Glaseado", "Index", "Producto_glaseado")</li>
+                    </ul>
+                }
+
+                @if (Request.IsAuthenticated && User.IsInRole("Registro"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Registro", "Index", "Registro_compra")</li>
+                        <li>@Html.ActionLink("Productos", "Index", "Productos")</li>
+                    </ul>
+                }
+
+                @if (Request.IsAuthenticated && User.IsInRole("Glaseado"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Glaseado", "Index", "producto_glaseado")</li>
+
+                    </ul>
+                }
+
+                @if (Request.IsAuthenticated && User.IsInRole("Proceso"))
+                {
+                    <ul class="nav navbar-nav">
+                        <li>@Html.ActionLink("Proceso", "Index", "producto_proceso")</li>
+
+                    </ul>
+                }
+
+
+
+                @Html.Partial("_LoginPartial")
+            </div>
+        </div>
+    </div>
+    <div class="container body-content">
+        @RenderBody()
+        <hr />
+
+        @if (Request.IsAuthenticated && User.IsInRole("Gerente"))
+        {
+            
+        <script type="text/javascript">
+
+            window.onload = function () {
+                var chart = new CanvasJS.Chart("chartContainer", {
+                    theme: "light2",
+                    animationEnabled: true,
+                    title: {
+                        text: " Estadisticas"
+                    },
+                    data: [
+                        {
+                            type: "pie", //change type to bar, line, area, pie, etc
+                            dataPoints: [
+                                { y: @Session["TotalOriginal"], name: "Cantidad Inicial" },
+                                { y: @Session["TotalProcesado"], name: "Total Procesado" },
+                                { y: @Session["TotalGlaseado"], name: "Total Glaseado" }
+                            ]
+                        }
+                    ]
+                });
+                chart.render();
+            };
+        </script>
+        }
+        <footer>
+            <p>&copy; @DateTime.Now.Year - Mi aplicación ASP.NET</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    <script src="https://canvasjs.com/assets/script/canvasjs.min.js">
+    </script>
+    @RenderSection("scripts", required: false)
+</body>
+</html>

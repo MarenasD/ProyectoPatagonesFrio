@@ -1,0 +1,832 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PatagonesFModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Name" Type="nvarchar" MaxLength="256" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUserRoles">
+          <Key>
+            <PropertyRef Name="UserId" />
+            <PropertyRef Name="RoleId" />
+          </Key>
+          <Property Name="UserId" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="RoleId" Type="nvarchar" MaxLength="128" Nullable="false" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="nvarchar" MaxLength="128" Nullable="false" />
+          <Property Name="Email" Type="nvarchar" MaxLength="256" />
+          <Property Name="EmailConfirmed" Type="bit" Nullable="false" />
+          <Property Name="PasswordHash" Type="nvarchar(max)" />
+          <Property Name="SecurityStamp" Type="nvarchar(max)" />
+          <Property Name="PhoneNumber" Type="nvarchar(max)" />
+          <Property Name="PhoneNumberConfirmed" Type="bit" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="bit" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="datetime" />
+          <Property Name="LockoutEnabled" Type="bit" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="int" Nullable="false" />
+          <Property Name="UserName" Type="nvarchar" MaxLength="256" Nullable="false" />
+          <Property Name="rut" Type="int" />
+        </EntityType>
+        <EntityType Name="estado_glaseado">
+          <Key>
+            <PropertyRef Name="id_estado_glaseado" />
+          </Key>
+          <Property Name="id_estado_glaseado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="estado_producto">
+          <Key>
+            <PropertyRef Name="id_estado_producto" />
+          </Key>
+          <Property Name="id_estado_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="tipo_estado" Type="varchar" MaxLength="20" />
+        </EntityType>
+        <EntityType Name="personal">
+          <Key>
+            <PropertyRef Name="rut_personal" />
+          </Key>
+          <Property Name="rut_personal" Type="int" Nullable="false" />
+          <Property Name="nombre_completo" Type="varchar" MaxLength="50" />
+          <Property Name="apellido_paterno" Type="varchar" MaxLength="20" />
+          <Property Name="apellido_materno" Type="varchar" MaxLength="20" />
+          <Property Name="direccion_personal" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="producto" Type="varchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="producto_glaseado">
+          <Key>
+            <PropertyRef Name="id_producto_glaseado" />
+          </Key>
+          <Property Name="id_producto_glaseado" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad_glaseada" Type="int" />
+          <Property Name="fecha_glaseada" Type="date" />
+          <Property Name="fk_id_producto_proceso" Type="int" />
+          <Property Name="fk_id_estado_glaseado" Type="int" />
+        </EntityType>
+        <EntityType Name="producto_proceso">
+          <Key>
+            <PropertyRef Name="id_producto_proceso" />
+          </Key>
+          <Property Name="id_producto_proceso" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad_procesada" Type="int" Nullable="false" />
+          <Property Name="fecha_proceso" Type="date" Nullable="false" />
+          <Property Name="fk_id_producto" Type="int" Nullable="false" />
+          <Property Name="fk_estado_producto" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="proveedor">
+          <Key>
+            <PropertyRef Name="rut_proveedor" />
+          </Key>
+          <Property Name="rut_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="nombre_proveedor" Type="varchar" MaxLength="20" />
+          <Property Name="direccion_proveedor" Type="varchar" MaxLength="30" />
+          <Property Name="telefono_proveedor" Type="int" />
+          <Property Name="email_proveedor" Type="varchar" MaxLength="40" />
+        </EntityType>
+        <EntityType Name="proveedor_producto">
+          <Key>
+            <PropertyRef Name="id_producto_proveedor" />
+          </Key>
+          <Property Name="id_producto_proveedor" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="fk_id_producto" Type="int" />
+          <Property Name="fk_id_proveedor" Type="int" />
+        </EntityType>
+        <EntityType Name="registro_compra">
+          <Key>
+            <PropertyRef Name="id_registro_compra" />
+          </Key>
+          <Property Name="id_registro_compra" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cantidad_comprada" Type="int" Nullable="false" />
+          <Property Name="fecha_comprada" Type="date" Nullable="false" />
+          <Property Name="n_factura" Type="varchar" MaxLength="30" Nullable="false" />
+          <Property Name="lote" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="tipo_documento" Type="varchar" MaxLength="50" Nullable="false" />
+          <Property Name="fk_id_producto" Type="int" Nullable="false" />
+          <Property Name="fk_id_personal" Type="int" Nullable="false" />
+        </EntityType>
+        <EntityType Name="telefono_personal">
+          <Key>
+            <PropertyRef Name="id_telefono_personal" />
+          </Key>
+          <Property Name="id_telefono_personal" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="num1_personal" Type="int" />
+          <Property Name="num2_personal" Type="int" />
+          <Property Name="fk_rut_personal" Type="int" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_personal">
+          <End Role="personal" Type="Self.personal" Multiplicity="0..1" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="rut_personal" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetRoles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="RoleId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="1">
+            <OnDelete Action="Cascade" />
+          </End>
+          <End Role="AspNetUserRoles" Type="Self.AspNetUserRoles" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="AspNetUsers">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="AspNetUserRoles">
+              <PropertyRef Name="UserId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_glaseado_estado_glaseado">
+          <End Role="estado_glaseado" Type="Self.estado_glaseado" Multiplicity="0..1" />
+          <End Role="producto_glaseado" Type="Self.producto_glaseado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_glaseado">
+              <PropertyRef Name="id_estado_glaseado" />
+            </Principal>
+            <Dependent Role="producto_glaseado">
+              <PropertyRef Name="fk_id_estado_glaseado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_glaseado_producto_proceso">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="producto_glaseado" Type="Self.producto_glaseado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="producto_glaseado">
+              <PropertyRef Name="fk_id_producto_proceso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_proceso_estado_producto">
+          <End Role="estado_producto" Type="Self.estado_producto" Multiplicity="1" />
+          <End Role="producto_proceso" Type="Self.producto_proceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_producto">
+              <PropertyRef Name="id_estado_producto" />
+            </Principal>
+            <Dependent Role="producto_proceso">
+              <PropertyRef Name="fk_estado_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_proceso_producto">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="producto_proceso" Type="Self.producto_proceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="producto_proceso">
+              <PropertyRef Name="fk_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_producto_producto1">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="proveedor_producto" Type="Self.proveedor_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="proveedor_producto">
+              <PropertyRef Name="fk_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_producto_proveedor">
+          <End Role="proveedor" Type="Self.proveedor" Multiplicity="0..1" />
+          <End Role="proveedor_producto" Type="Self.proveedor_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="rut_proveedor" />
+            </Principal>
+            <Dependent Role="proveedor_producto">
+              <PropertyRef Name="fk_id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_compra_personal">
+          <End Role="personal" Type="Self.personal" Multiplicity="1" />
+          <End Role="registro_compra" Type="Self.registro_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="rut_personal" />
+            </Principal>
+            <Dependent Role="registro_compra">
+              <PropertyRef Name="fk_id_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_compra_producto">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="registro_compra" Type="Self.registro_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="registro_compra">
+              <PropertyRef Name="fk_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_telefono_personal_personal">
+          <End Role="personal" Type="Self.personal" Multiplicity="0..1" />
+          <End Role="telefono_personal" Type="Self.telefono_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="rut_personal" />
+            </Principal>
+            <Dependent Role="telefono_personal">
+              <PropertyRef Name="fk_rut_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PatagonesFModelStoreContainer">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUserRoles" EntityType="Self.AspNetUserRoles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_glaseado" EntityType="Self.estado_glaseado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="estado_producto" EntityType="Self.estado_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="personal" EntityType="Self.personal" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto" EntityType="Self.producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto_glaseado" EntityType="Self.producto_glaseado" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="producto_proceso" EntityType="Self.producto_proceso" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedor" EntityType="Self.proveedor" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="proveedor_producto" EntityType="Self.proveedor_producto" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="registro_compra" EntityType="Self.registro_compra" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="telefono_personal" EntityType="Self.telefono_personal" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_AspNetUsers_personal" Association="Self.FK_AspNetUsers_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetRoles_RoleId">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId" Association="Self.FK_dbo_AspNetUserRoles_dbo_AspNetUsers_UserId">
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+            <End Role="AspNetUserRoles" EntitySet="AspNetUserRoles" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_glaseado_estado_glaseado" Association="Self.FK_producto_glaseado_estado_glaseado">
+            <End Role="estado_glaseado" EntitySet="estado_glaseado" />
+            <End Role="producto_glaseado" EntitySet="producto_glaseado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_glaseado_producto_proceso" Association="Self.FK_producto_glaseado_producto_proceso">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="producto_glaseado" EntitySet="producto_glaseado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_proceso_estado_producto" Association="Self.FK_producto_proceso_estado_producto">
+            <End Role="estado_producto" EntitySet="estado_producto" />
+            <End Role="producto_proceso" EntitySet="producto_proceso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_proceso_producto" Association="Self.FK_producto_proceso_producto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="producto_proceso" EntitySet="producto_proceso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_producto_producto1" Association="Self.FK_proveedor_producto_producto1">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="proveedor_producto" EntitySet="proveedor_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_producto_proveedor" Association="Self.FK_proveedor_producto_proveedor">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="proveedor_producto" EntitySet="proveedor_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_compra_personal" Association="Self.FK_registro_compra_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="registro_compra" EntitySet="registro_compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_compra_producto" Association="Self.FK_registro_compra_producto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="registro_compra" EntitySet="registro_compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_telefono_personal_personal" Association="Self.FK_telefono_personal_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="telefono_personal" EntitySet="telefono_personal" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PatagonesFModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="AspNetRoles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Name" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="Self.AspNetUserRoles" FromRole="AspNetRoles" ToRole="AspNetUsers" />
+        </EntityType>
+        <EntityType Name="AspNetUsers">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="String" MaxLength="128" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Email" Type="String" MaxLength="256" FixedLength="false" Unicode="true" />
+          <Property Name="EmailConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="SecurityStamp" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumber" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="PhoneNumberConfirmed" Type="Boolean" Nullable="false" />
+          <Property Name="TwoFactorEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="LockoutEndDateUtc" Type="DateTime" Precision="3" />
+          <Property Name="LockoutEnabled" Type="Boolean" Nullable="false" />
+          <Property Name="AccessFailedCount" Type="Int32" Nullable="false" />
+          <Property Name="UserName" Type="String" MaxLength="256" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="rut" Type="Int32" />
+          <NavigationProperty Name="AspNetRoles" Relationship="Self.AspNetUserRoles" FromRole="AspNetUsers" ToRole="AspNetRoles" />
+          <NavigationProperty Name="personal" Relationship="PatagonesFModel.FK_AspNetUsers_personal" FromRole="AspNetUsers" ToRole="personal" />
+        </EntityType>
+        <EntityType Name="estado_glaseado">
+          <Key>
+            <PropertyRef Name="id_estado_glaseado" />
+          </Key>
+          <Property Name="id_estado_glaseado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="producto_glaseado" Relationship="Self.FK_producto_glaseado_estado_glaseado" FromRole="estado_glaseado" ToRole="producto_glaseado" />
+        </EntityType>
+        <EntityType Name="estado_producto">
+          <Key>
+            <PropertyRef Name="id_estado_producto" />
+          </Key>
+          <Property Name="id_estado_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="tipo_estado" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="producto_proceso" Relationship="Self.FK_producto_proceso_estado_producto" FromRole="estado_producto" ToRole="producto_proceso" />
+        </EntityType>
+        <EntityType Name="producto">
+          <Key>
+            <PropertyRef Name="id_producto" />
+          </Key>
+          <Property Name="id_producto" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="producto1" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="producto_glaseado" Relationship="Self.FK_producto_glaseado_producto_proceso" FromRole="producto" ToRole="producto_glaseado" />
+          <NavigationProperty Name="producto_proceso" Relationship="Self.FK_producto_proceso_producto" FromRole="producto" ToRole="producto_proceso" />
+          <NavigationProperty Name="registro_compra" Relationship="Self.FK_registro_compra_producto" FromRole="producto" ToRole="registro_compra" />
+          <NavigationProperty Name="proveedor_producto" Relationship="PatagonesFModel.FK_proveedor_producto_producto1" FromRole="producto" ToRole="proveedor_producto" />
+        </EntityType>
+        <EntityType Name="producto_glaseado">
+          <Key>
+            <PropertyRef Name="id_producto_glaseado" />
+          </Key>
+          <Property Name="id_producto_glaseado" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad_glaseada" Type="Int32" />
+          <Property Name="fecha_glaseada" Type="DateTime" Precision="0" />
+          <Property Name="fk_id_producto_proceso" Type="Int32" />
+          <Property Name="fk_id_estado_glaseado" Type="Int32" />
+          <NavigationProperty Name="estado_glaseado" Relationship="Self.FK_producto_glaseado_estado_glaseado" FromRole="producto_glaseado" ToRole="estado_glaseado" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_producto_glaseado_producto_proceso" FromRole="producto_glaseado" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="producto_proceso">
+          <Key>
+            <PropertyRef Name="id_producto_proceso" />
+          </Key>
+          <Property Name="id_producto_proceso" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad_procesada" Type="Int32" Nullable="false" />
+          <Property Name="fecha_proceso" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="fk_id_producto" Type="Int32" Nullable="false" />
+          <Property Name="fk_estado_producto" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="estado_producto" Relationship="Self.FK_producto_proceso_estado_producto" FromRole="producto_proceso" ToRole="estado_producto" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_producto_proceso_producto" FromRole="producto_proceso" ToRole="producto" />
+        </EntityType>
+        <EntityType Name="registro_compra">
+          <Key>
+            <PropertyRef Name="id_registro_compra" />
+          </Key>
+          <Property Name="id_registro_compra" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cantidad_comprada" Type="Int32" Nullable="false" />
+          <Property Name="fecha_comprada" Type="DateTime" Nullable="false" Precision="0" />
+          <Property Name="n_factura" Type="String" MaxLength="30" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="lote" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="tipo_documento" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="fk_id_producto" Type="Int32" Nullable="false" />
+          <Property Name="fk_id_personal" Type="Int32" Nullable="false" />
+          <NavigationProperty Name="producto" Relationship="Self.FK_registro_compra_producto" FromRole="registro_compra" ToRole="producto" />
+          <NavigationProperty Name="personal" Relationship="PatagonesFModel.FK_registro_compra_personal" FromRole="registro_compra" ToRole="personal" />
+        </EntityType>
+        <EntityType Name="telefono_personal">
+          <Key>
+            <PropertyRef Name="id_telefono_personal" />
+          </Key>
+          <Property Name="id_telefono_personal" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="num1_personal" Type="Int32" />
+          <Property Name="num2_personal" Type="Int32" />
+          <Property Name="fk_rut_personal" Type="Int32" />
+          <NavigationProperty Name="personal" Relationship="PatagonesFModel.FK_telefono_personal_personal" FromRole="telefono_personal" ToRole="personal" />
+        </EntityType>
+        <Association Name="FK_producto_glaseado_estado_glaseado">
+          <End Role="estado_glaseado" Type="Self.estado_glaseado" Multiplicity="0..1" />
+          <End Role="producto_glaseado" Type="Self.producto_glaseado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_glaseado">
+              <PropertyRef Name="id_estado_glaseado" />
+            </Principal>
+            <Dependent Role="producto_glaseado">
+              <PropertyRef Name="fk_id_estado_glaseado" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_proceso_estado_producto">
+          <End Role="estado_producto" Type="Self.estado_producto" Multiplicity="1" />
+          <End Role="producto_proceso" Type="Self.producto_proceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="estado_producto">
+              <PropertyRef Name="id_estado_producto" />
+            </Principal>
+            <Dependent Role="producto_proceso">
+              <PropertyRef Name="fk_estado_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_glaseado_producto_proceso">
+          <End Role="producto" Type="Self.producto" Multiplicity="0..1" />
+          <End Role="producto_glaseado" Type="Self.producto_glaseado" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="producto_glaseado">
+              <PropertyRef Name="fk_id_producto_proceso" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_producto_proceso_producto">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="producto_proceso" Type="Self.producto_proceso" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="producto_proceso">
+              <PropertyRef Name="fk_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_compra_producto">
+          <End Role="producto" Type="Self.producto" Multiplicity="1" />
+          <End Role="registro_compra" Type="Self.registro_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="registro_compra">
+              <PropertyRef Name="fk_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="AspNetUserRoles">
+          <End Role="AspNetRoles" Type="Self.AspNetRoles" Multiplicity="*" />
+          <End Role="AspNetUsers" Type="Self.AspNetUsers" Multiplicity="*" />
+        </Association>
+        <EntityContainer Name="PatagonesFEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="AspNetRoles" EntityType="Self.AspNetRoles" />
+          <EntitySet Name="AspNetUsers" EntityType="Self.AspNetUsers" />
+          <EntitySet Name="estado_glaseado" EntityType="Self.estado_glaseado" />
+          <EntitySet Name="estado_producto" EntityType="Self.estado_producto" />
+          <EntitySet Name="producto" EntityType="Self.producto" />
+          <EntitySet Name="producto_glaseado" EntityType="Self.producto_glaseado" />
+          <EntitySet Name="producto_proceso" EntityType="Self.producto_proceso" />
+          <EntitySet Name="registro_compra" EntityType="Self.registro_compra" />
+          <EntitySet Name="telefono_personal" EntityType="Self.telefono_personal" />
+          <AssociationSet Name="FK_producto_glaseado_estado_glaseado" Association="Self.FK_producto_glaseado_estado_glaseado">
+            <End Role="estado_glaseado" EntitySet="estado_glaseado" />
+            <End Role="producto_glaseado" EntitySet="producto_glaseado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_proceso_estado_producto" Association="Self.FK_producto_proceso_estado_producto">
+            <End Role="estado_producto" EntitySet="estado_producto" />
+            <End Role="producto_proceso" EntitySet="producto_proceso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_glaseado_producto_proceso" Association="Self.FK_producto_glaseado_producto_proceso">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="producto_glaseado" EntitySet="producto_glaseado" />
+          </AssociationSet>
+          <AssociationSet Name="FK_producto_proceso_producto" Association="Self.FK_producto_proceso_producto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="producto_proceso" EntitySet="producto_proceso" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_compra_producto" Association="Self.FK_registro_compra_producto">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="registro_compra" EntitySet="registro_compra" />
+          </AssociationSet>
+          <AssociationSet Name="AspNetUserRoles" Association="Self.AspNetUserRoles">
+            <End Role="AspNetRoles" EntitySet="AspNetRoles" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <EntitySet Name="personal" EntityType="PatagonesFModel.personal" />
+          <AssociationSet Name="FK_AspNetUsers_personal" Association="PatagonesFModel.FK_AspNetUsers_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="AspNetUsers" EntitySet="AspNetUsers" />
+          </AssociationSet>
+          <AssociationSet Name="FK_registro_compra_personal" Association="PatagonesFModel.FK_registro_compra_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="registro_compra" EntitySet="registro_compra" />
+          </AssociationSet>
+          <AssociationSet Name="FK_telefono_personal_personal" Association="PatagonesFModel.FK_telefono_personal_personal">
+            <End Role="personal" EntitySet="personal" />
+            <End Role="telefono_personal" EntitySet="telefono_personal" />
+          </AssociationSet>
+          <EntitySet Name="proveedor" EntityType="PatagonesFModel.proveedor" />
+          <EntitySet Name="proveedor_producto" EntityType="PatagonesFModel.proveedor_producto" />
+          <AssociationSet Name="FK_proveedor_producto_producto1" Association="PatagonesFModel.FK_proveedor_producto_producto1">
+            <End Role="producto" EntitySet="producto" />
+            <End Role="proveedor_producto" EntitySet="proveedor_producto" />
+          </AssociationSet>
+          <AssociationSet Name="FK_proveedor_producto_proveedor" Association="PatagonesFModel.FK_proveedor_producto_proveedor">
+            <End Role="proveedor" EntitySet="proveedor" />
+            <End Role="proveedor_producto" EntitySet="proveedor_producto" />
+          </AssociationSet>
+        </EntityContainer>
+        <EntityType Name="personal">
+          <Key>
+            <PropertyRef Name="rut_personal" />
+          </Key>
+          <Property Name="rut_personal" Type="Int32" Nullable="false" />
+          <Property Name="nombre_completo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_paterno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="apellido_materno" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_personal" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="AspNetUsers" Relationship="PatagonesFModel.FK_AspNetUsers_personal" FromRole="personal" ToRole="AspNetUsers" />
+          <NavigationProperty Name="registro_compra" Relationship="PatagonesFModel.FK_registro_compra_personal" FromRole="personal" ToRole="registro_compra" />
+          <NavigationProperty Name="telefono_personal" Relationship="PatagonesFModel.FK_telefono_personal_personal" FromRole="personal" ToRole="telefono_personal" />
+        </EntityType>
+        <Association Name="FK_AspNetUsers_personal">
+          <End Type="PatagonesFModel.personal" Role="personal" Multiplicity="0..1" />
+          <End Type="PatagonesFModel.AspNetUsers" Role="AspNetUsers" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="rut_personal" />
+            </Principal>
+            <Dependent Role="AspNetUsers">
+              <PropertyRef Name="rut" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_registro_compra_personal">
+          <End Type="PatagonesFModel.personal" Role="personal" Multiplicity="1" />
+          <End Type="PatagonesFModel.registro_compra" Role="registro_compra" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="rut_personal" />
+            </Principal>
+            <Dependent Role="registro_compra">
+              <PropertyRef Name="fk_id_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_telefono_personal_personal">
+          <End Type="PatagonesFModel.personal" Role="personal" Multiplicity="0..1" />
+          <End Type="PatagonesFModel.telefono_personal" Role="telefono_personal" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="personal">
+              <PropertyRef Name="rut_personal" />
+            </Principal>
+            <Dependent Role="telefono_personal">
+              <PropertyRef Name="fk_rut_personal" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="proveedor">
+          <Key>
+            <PropertyRef Name="rut_proveedor" />
+          </Key>
+          <Property Name="rut_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="nombre_proveedor" Type="String" MaxLength="20" FixedLength="false" Unicode="false" />
+          <Property Name="direccion_proveedor" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telefono_proveedor" Type="Int32" />
+          <Property Name="email_proveedor" Type="String" MaxLength="40" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="proveedor_producto" Relationship="PatagonesFModel.FK_proveedor_producto_proveedor" FromRole="proveedor" ToRole="proveedor_producto" />
+        </EntityType>
+        <EntityType Name="proveedor_producto">
+          <Key>
+            <PropertyRef Name="id_producto_proveedor" />
+          </Key>
+          <Property Name="id_producto_proveedor" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="fk_id_producto" Type="Int32" />
+          <Property Name="fk_id_proveedor" Type="Int32" />
+          <NavigationProperty Name="producto" Relationship="PatagonesFModel.FK_proveedor_producto_producto1" FromRole="proveedor_producto" ToRole="producto" />
+          <NavigationProperty Name="proveedor" Relationship="PatagonesFModel.FK_proveedor_producto_proveedor" FromRole="proveedor_producto" ToRole="proveedor" />
+        </EntityType>
+        <Association Name="FK_proveedor_producto_producto1">
+          <End Type="PatagonesFModel.producto" Role="producto" Multiplicity="0..1" />
+          <End Type="PatagonesFModel.proveedor_producto" Role="proveedor_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="producto">
+              <PropertyRef Name="id_producto" />
+            </Principal>
+            <Dependent Role="proveedor_producto">
+              <PropertyRef Name="fk_id_producto" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_proveedor_producto_proveedor">
+          <End Type="PatagonesFModel.proveedor" Role="proveedor" Multiplicity="0..1" />
+          <End Type="PatagonesFModel.proveedor_producto" Role="proveedor_producto" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="proveedor">
+              <PropertyRef Name="rut_proveedor" />
+            </Principal>
+            <Dependent Role="proveedor_producto">
+              <PropertyRef Name="fk_id_proveedor" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PatagonesFModelStoreContainer" CdmEntityContainer="PatagonesFEntities">
+          <EntitySetMapping Name="AspNetRoles">
+            <EntityTypeMapping TypeName="PatagonesFModel.AspNetRoles">
+              <MappingFragment StoreEntitySet="AspNetRoles">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Name" ColumnName="Name" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="AspNetUsers">
+            <EntityTypeMapping TypeName="PatagonesFModel.AspNetUsers">
+              <MappingFragment StoreEntitySet="AspNetUsers">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="Email" ColumnName="Email" />
+                <ScalarProperty Name="EmailConfirmed" ColumnName="EmailConfirmed" />
+                <ScalarProperty Name="PasswordHash" ColumnName="PasswordHash" />
+                <ScalarProperty Name="SecurityStamp" ColumnName="SecurityStamp" />
+                <ScalarProperty Name="PhoneNumber" ColumnName="PhoneNumber" />
+                <ScalarProperty Name="PhoneNumberConfirmed" ColumnName="PhoneNumberConfirmed" />
+                <ScalarProperty Name="TwoFactorEnabled" ColumnName="TwoFactorEnabled" />
+                <ScalarProperty Name="LockoutEndDateUtc" ColumnName="LockoutEndDateUtc" />
+                <ScalarProperty Name="LockoutEnabled" ColumnName="LockoutEnabled" />
+                <ScalarProperty Name="AccessFailedCount" ColumnName="AccessFailedCount" />
+                <ScalarProperty Name="UserName" ColumnName="UserName" />
+                <ScalarProperty Name="rut" ColumnName="rut" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_glaseado">
+            <EntityTypeMapping TypeName="PatagonesFModel.estado_glaseado">
+              <MappingFragment StoreEntitySet="estado_glaseado">
+                <ScalarProperty Name="id_estado_glaseado" ColumnName="id_estado_glaseado" />
+                <ScalarProperty Name="tipo_estado" ColumnName="tipo_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="estado_producto">
+            <EntityTypeMapping TypeName="PatagonesFModel.estado_producto">
+              <MappingFragment StoreEntitySet="estado_producto">
+                <ScalarProperty Name="id_estado_producto" ColumnName="id_estado_producto" />
+                <ScalarProperty Name="tipo_estado" ColumnName="tipo_estado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto">
+            <EntityTypeMapping TypeName="PatagonesFModel.producto">
+              <MappingFragment StoreEntitySet="producto">
+                <ScalarProperty Name="id_producto" ColumnName="id_producto" />
+                <ScalarProperty Name="producto1" ColumnName="producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto_glaseado">
+            <EntityTypeMapping TypeName="PatagonesFModel.producto_glaseado">
+              <MappingFragment StoreEntitySet="producto_glaseado">
+                <ScalarProperty Name="id_producto_glaseado" ColumnName="id_producto_glaseado" />
+                <ScalarProperty Name="cantidad_glaseada" ColumnName="cantidad_glaseada" />
+                <ScalarProperty Name="fecha_glaseada" ColumnName="fecha_glaseada" />
+                <ScalarProperty Name="fk_id_producto_proceso" ColumnName="fk_id_producto_proceso" />
+                <ScalarProperty Name="fk_id_estado_glaseado" ColumnName="fk_id_estado_glaseado" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="producto_proceso">
+            <EntityTypeMapping TypeName="PatagonesFModel.producto_proceso">
+              <MappingFragment StoreEntitySet="producto_proceso">
+                <ScalarProperty Name="id_producto_proceso" ColumnName="id_producto_proceso" />
+                <ScalarProperty Name="cantidad_procesada" ColumnName="cantidad_procesada" />
+                <ScalarProperty Name="fecha_proceso" ColumnName="fecha_proceso" />
+                <ScalarProperty Name="fk_id_producto" ColumnName="fk_id_producto" />
+                <ScalarProperty Name="fk_estado_producto" ColumnName="fk_estado_producto" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="registro_compra">
+            <EntityTypeMapping TypeName="PatagonesFModel.registro_compra">
+              <MappingFragment StoreEntitySet="registro_compra">
+                <ScalarProperty Name="id_registro_compra" ColumnName="id_registro_compra" />
+                <ScalarProperty Name="cantidad_comprada" ColumnName="cantidad_comprada" />
+                <ScalarProperty Name="fecha_comprada" ColumnName="fecha_comprada" />
+                <ScalarProperty Name="n_factura" ColumnName="n_factura" />
+                <ScalarProperty Name="lote" ColumnName="lote" />
+                <ScalarProperty Name="tipo_documento" ColumnName="tipo_documento" />
+                <ScalarProperty Name="fk_id_producto" ColumnName="fk_id_producto" />
+                <ScalarProperty Name="fk_id_personal" ColumnName="fk_id_personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="telefono_personal">
+            <EntityTypeMapping TypeName="PatagonesFModel.telefono_personal">
+              <MappingFragment StoreEntitySet="telefono_personal">
+                <ScalarProperty Name="id_telefono_personal" ColumnName="id_telefono_personal" />
+                <ScalarProperty Name="num1_personal" ColumnName="num1_personal" />
+                <ScalarProperty Name="num2_personal" ColumnName="num2_personal" />
+                <ScalarProperty Name="fk_rut_personal" ColumnName="fk_rut_personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <AssociationSetMapping Name="AspNetUserRoles" TypeName="PatagonesFModel.AspNetUserRoles" StoreEntitySet="AspNetUserRoles">
+            <EndProperty Name="AspNetRoles">
+              <ScalarProperty Name="Id" ColumnName="RoleId" />
+            </EndProperty>
+            <EndProperty Name="AspNetUsers">
+              <ScalarProperty Name="Id" ColumnName="UserId" />
+            </EndProperty>
+          </AssociationSetMapping>
+          <EntitySetMapping Name="personal">
+            <EntityTypeMapping TypeName="PatagonesFModel.personal">
+              <MappingFragment StoreEntitySet="personal">
+                <ScalarProperty Name="direccion_personal" ColumnName="direccion_personal" />
+                <ScalarProperty Name="apellido_materno" ColumnName="apellido_materno" />
+                <ScalarProperty Name="apellido_paterno" ColumnName="apellido_paterno" />
+                <ScalarProperty Name="nombre_completo" ColumnName="nombre_completo" />
+                <ScalarProperty Name="rut_personal" ColumnName="rut_personal" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedor">
+            <EntityTypeMapping TypeName="PatagonesFModel.proveedor">
+              <MappingFragment StoreEntitySet="proveedor">
+                <ScalarProperty Name="email_proveedor" ColumnName="email_proveedor" />
+                <ScalarProperty Name="telefono_proveedor" ColumnName="telefono_proveedor" />
+                <ScalarProperty Name="direccion_proveedor" ColumnName="direccion_proveedor" />
+                <ScalarProperty Name="nombre_proveedor" ColumnName="nombre_proveedor" />
+                <ScalarProperty Name="rut_proveedor" ColumnName="rut_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="proveedor_producto">
+            <EntityTypeMapping TypeName="PatagonesFModel.proveedor_producto">
+              <MappingFragment StoreEntitySet="proveedor_producto">
+                <ScalarProperty Name="fk_id_proveedor" ColumnName="fk_id_proveedor" />
+                <ScalarProperty Name="fk_id_producto" ColumnName="fk_id_producto" />
+                <ScalarProperty Name="id_producto_proveedor" ColumnName="id_producto_proveedor" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="Ninguno" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

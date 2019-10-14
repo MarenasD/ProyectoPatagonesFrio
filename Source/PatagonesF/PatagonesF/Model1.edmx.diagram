@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="7b4b2317903948d1ae12020d031d1945" Name="Diagram1">
+        <EntityTypeShape EntityType="PatagonesFModel.AspNetRoles" Width="1.5" PointX="1.75" PointY="23.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.AspNetUsers" Width="1.5" PointX="4" PointY="14.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.estado_glaseado" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.estado_producto" Width="1.5" PointX="3.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.producto" Width="1.5" PointX="0.75" PointY="6.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.producto_glaseado" Width="1.5" PointX="3" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.producto_proceso" Width="1.5" PointX="6" PointY="6.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.registro_compra" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PatagonesFModel.telefono_personal" Width="1.5" PointX="3" PointY="20.25" IsExpanded="true" />
+        <AssociationConnector Association="PatagonesFModel.FK_producto_glaseado_estado_glaseado" ManuallyRouted="false" />
+        <AssociationConnector Association="PatagonesFModel.FK_producto_proceso_estado_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="PatagonesFModel.FK_producto_glaseado_producto_proceso" ManuallyRouted="false" />
+        <AssociationConnector Association="PatagonesFModel.FK_producto_proceso_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="PatagonesFModel.FK_registro_compra_producto" ManuallyRouted="false" />
+        <AssociationConnector Association="PatagonesFModel.AspNetUserRoles" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="PatagonesFModel.personal" Width="1.5" PointX="0.75" PointY="13.875" />
+        <AssociationConnector Association="PatagonesFModel.FK_AspNetUsers_personal" />
+        <AssociationConnector Association="PatagonesFModel.FK_registro_compra_personal" />
+        <AssociationConnector Association="PatagonesFModel.FK_telefono_personal_personal" />
+        <EntityTypeShape EntityType="PatagonesFModel.proveedor" Width="1.5" PointX="0.75" PointY="3.5" />
+        <EntityTypeShape EntityType="PatagonesFModel.proveedor_producto" Width="1.5" PointX="3" PointY="3.625" />
+        <AssociationConnector Association="PatagonesFModel.FK_proveedor_producto_producto1" />
+        <AssociationConnector Association="PatagonesFModel.FK_proveedor_producto_proveedor" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

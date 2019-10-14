@@ -1,0 +1,84 @@
+﻿@model IEnumerable<PatagonesF.registro_compra>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_comprada)
+
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_comprada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.n_factura)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.lote)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.tipo_documento)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.personal.nombre_completo)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.producto.producto1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad_comprada)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_comprada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.n_factura)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.lote)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_documento)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.personal.nombre_completo)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.producto.producto1)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_registro_compra }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_registro_compra }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_registro_compra })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+
+    int total;
+    if (Model != null)
+    {
+        total = Model.Sum(x => x.cantidad_comprada);
+        Session["TotalOriginal"] = total;
+    }
+
+
+}

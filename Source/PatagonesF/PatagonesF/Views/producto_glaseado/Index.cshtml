@@ -1,0 +1,65 @@
+﻿@model IEnumerable<PatagonesF.producto_glaseado>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.cantidad_glaseada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.fecha_glaseada)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.estado_glaseado.tipo_estado)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.producto.producto1)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad_glaseada)
+            </td>
+
+            <td>
+                @Html.DisplayFor(modelItem => item.fecha_glaseada)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.estado_glaseado.tipo_estado)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.producto.producto1)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.id_producto_glaseado }) |
+                @Html.ActionLink("Details", "Details", new { id = item.id_producto_glaseado }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id_producto_glaseado })
+            </td>
+        </tr>
+    }
+
+</table>
+
+@{
+
+    int total;
+    if (Model != null)
+    {
+        total = Convert.ToInt32(Model.Sum(x => x.cantidad_glaseada));
+        Session["TotalGlaseado"] = total;
+    }
+
+
+}

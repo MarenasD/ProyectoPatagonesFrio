@@ -1,0 +1,74 @@
+﻿@model PatagonesF.registro_compra
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>registro_compra</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_comprada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_comprada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_comprada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_comprada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.n_factura)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.n_factura)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.lote)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.lote)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.tipo_documento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.tipo_documento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personal.nombre_completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personal.nombre_completo)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.producto1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.producto1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_registro_compra }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

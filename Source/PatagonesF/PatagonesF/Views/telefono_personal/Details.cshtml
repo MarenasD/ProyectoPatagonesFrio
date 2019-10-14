@@ -1,0 +1,42 @@
+﻿@model PatagonesF.telefono_personal
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>telefono_personal</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.num1_personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num1_personal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.num2_personal)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.num2_personal)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.personal.nombre_completo)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.personal.nombre_completo)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_telefono_personal }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,50 @@
+﻿@model PatagonesF.producto_proceso
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>producto_proceso</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.cantidad_procesada)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.cantidad_procesada)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.fecha_proceso)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.fecha_proceso)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.estado_producto.tipo_estado)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.estado_producto.tipo_estado)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.producto.producto1)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.producto.producto1)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.id_producto_proceso }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
